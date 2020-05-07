@@ -1,0 +1,10 @@
+.logo{
+  text-align: center;
+  margin-top: 7vw;
+  margin-bottom: 7vw;
+}
+.logo-img{
+  width:50vw;
+  height: 50vw;
+  border-radius: 50%;
+}
