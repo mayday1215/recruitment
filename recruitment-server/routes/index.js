@@ -44,4 +44,32 @@ router.post("/login",(req,res) => {
   })
 })
 
+//修改用户信息
+router.post("/updateUserInfo",(req,res) => {
+  const user = req.body
+  const _id = user._id
+  UserModel.findByIdAndUpdate({_id},user).then(data => {
+    console.log('data')
+    const {username,type} = data
+    const newUser = Object.assign(user,{username,type})
+    if(data){
+      //修改成功
+      res.send({code:0,data:newUser})
+    }else{
+      //修改失败
+      res.send({code:1,data:{message:'修改失败'}})
+    }
+  })
+
+  // UserModel.findByIdAndUpdate({_id},req.body).then(data => {
+  //   // const newUser = Object.assign(req.data,data)
+  //   // if(data){
+  //   //   console.log('修改成功',newUser)
+  //   //   res.send({code:0,data:newUser})
+  //   // }else{
+  //   //  res.send({code:1,data:{message:'修改失败'}})
+  //   // }
+  // })
+})
+
 module.exports = router;

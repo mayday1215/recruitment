@@ -15,7 +15,7 @@ export default class Register extends Component {
     username:'',
     password:'',
     qrpassword:'',
-    type:'boos',
+    type:'boss',
     isErrMsg:''
   }
   
@@ -86,7 +86,7 @@ export default class Register extends Component {
             <InputItem placeholder="请输入确认密码" type="password" onChange={(val)=> {this.getInfo('qrpassword',val)}}>确认密码:</InputItem>
             <ListItme>
                 用户类型：
-              <Radio checked={this.state.type === 'boos'}  onChange={(val)=> {this.getInfo('type','boos')}}>老板</Radio>
+              <Radio checked={this.state.type === 'boss'}  onChange={(val)=> {this.getInfo('type','boss')}}>老板</Radio>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <Radio checked={this.state.type === 'job'}  onChange={(val)=> {this.getInfo('type','job')}}>求职者</Radio>
             </ListItme>

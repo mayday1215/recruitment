@@ -4,6 +4,8 @@ import {Redirect} from "react-router-dom"
 import {getUserInfo} from "../../redux/actions"
 import { NavBar, WingBlank, List, InputItem,Button,WhiteSpace, Toast  } from "antd-mobile"
 import Logo from './../../commponents/logo/Logo'
+
+
 const ListItme = List.Item
 
 
@@ -47,11 +49,29 @@ class Login extends Component {
   }
 
   render() {
-    const {message} = this.props.user
+    const {message,_id,type,header} = this.props.user
     const {errcode} = this.state
-    
-    if(this.props.user._id){
-      return <Redirect to="/"/>
+    if(_id){
+      //登录成功
+      if(type === "boss"){
+        //老板
+        if(header){
+          //已经完善信息了
+          return <Redirect to="/bossMain"/>
+        }else{
+          //还没完善信息
+          return <Redirect to="/bossInfo"/>
+        }
+      }else{
+        //求职者
+        if(header){
+          //已经完善信息了
+          return <Redirect to="/jobMain"/>
+        }else{
+          //还没完善信息
+          return <Redirect to="/jobInfo"/>
+        }
+      }
     }
     return (
       

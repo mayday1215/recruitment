@@ -11,9 +11,12 @@ import store from './redux/store'
 
 
 
-import Main from "./page/main/main"
 import Login from './page/login/login'
 import Register from './page/register/register'
+import BossInfo from "./page/bossInfo/bossInfo"
+import BossMain from "./page/bossMain/boosMain"
+import JobInfo from "./page/jobInfo/jobInfo"
+import JobMain from "./page/jobMain/jobMain"
 ReactDOM.render(
   (
     <Provider store={store}>
@@ -21,7 +24,10 @@ ReactDOM.render(
         <Switch>
           <Route path="/login" component={Login}></Route>
           <Route path="/register" component={Register}></Route>
-          <Route component={Main}></Route> 
+          <Route path="/bossInfo" component={BossInfo}></Route>
+          <Route path="/bossMain" component={BossMain}></Route>
+          <Route path="/jobInfo" component={JobInfo}></Route>
+          <Route path="/jobMain" component={JobMain}></Route>
         </Switch>
       </BrowserRouter>
     </Provider>

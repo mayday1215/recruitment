@@ -8,6 +8,7 @@ const initUser = {
   message:''
 }
 function user(state=initUser,action){
+  console.log(action)
   switch(action.type){
     case GETUSERINFO:
       return {...action.data}
